@@ -2,9 +2,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimización del Transporte y Reducción de Congestión en el Barrio Madelena</title>
+    <title> Centros de reciclaje barrio la Florida</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <style> 
+        #map{
+            height: 400px;
+            width: 1300px;
+        }
+    </style>
+
+    <style>
+        header {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f9f9f9;
+        }
+        
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+            text-align: center;
+        }
+        
+        header img {
+            height: 80px;
+            margin-right: 20px;
+        }
+    </style>  
 </head>
 <body>
-    <p>hola mundo!!</p>
+    <header>
+        <h1>Optimización del Transporte y Reducción de Congestión en el Barrio Madelena.</h1>
+        <img src="./logo.png" alt="Logo" height="70">
+        <div></div>
+        <div></div>
+    </header>
+    <main>
+        <div><p>En el barrio Madelena, durante las horas de la mañana, se presenta una alta congestión vehicular y peatonal, causada por la gran afluencia de personas, vehículos particulares y transporte público. Esta situación se relaciona principalmente con una inadecuada planificación y deficiente implementación de rutas de transporte. El presente proyecto tiene como objetivo analizar esta problemática y proponer soluciones que contribuyan a disminuir la congestión en la zona.</p></div>
+    </main>
+    <footer>
+        <div id="map"></div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        var map = L.map('map').setView([4.596525292737495, -74.15750076787104], 16);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 25,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map); 
+
+        L.marker([4.693154616794554, -74.11102194695583]).addTo(map).bindPopup("Barrio La Florida")
+
+        map.on('click', onMapClick)
+        function onMapClick(e){
+            alert("Posición: "+e.latlng)
+        }
+    </script>
+        </div>
+    </main>
+    <footer>
+        <div><p> </p></div>
+    </footer>
+
 </body>
 </html>
