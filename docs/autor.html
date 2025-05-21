@@ -1,12 +1,32 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Autor</title>
+  <title>Sobre el Autor</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 300px; margin-top: 20px; }
+    img { width: 150px; border-radius: 50%; }
+  </style>
 </head>
 <body>
-  <h1>Autor del Proyecto</h1>
-  <p>Proyecto realizado por [Tu nombre o el del grupo de investigación].</p>
-  <a href="index.html">Volver al inicio</a>
+  <h1>Sobre el Autor</h1>
+  <img src="tu-foto.jpg" alt="Foto del autor">
+  <p>
+    Mi nombre es [Tu Nombre]. Soy estudiante/personal técnico enfocado en el análisis geoespacial, la percepción remota y la aplicación de tecnologías SIG 
+    para resolver problemáticas del entorno. Apasionado por el estudio del territorio y su representación digital.
+  </p>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([7.11935, -73.12274], 12); // Bucaramanga como ejemplo
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    L.marker([7.11935, -73.12274]).addTo(map)
+      .bindPopup('Lugar de nacimiento')
+      .openPopup();
+  </script>
 </body>
 </html>

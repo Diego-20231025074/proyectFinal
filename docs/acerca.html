@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Barrio Madelena y sus problemáticas en la movilización</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f2f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      max-width: 900px;
+      width: 90%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      margin: 40px auto;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px;
+      color: #34495e;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    #map {
+      height: 400px;
+      margin-top: 30px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Barrio Madelena y sus problemáticas en la movilización</h1>
+    <p>
+      Teniendo en cuenta el polígono resaltado, se evidencia que las únicas vías de acceso al barrio Madelena son la Autopista Sur, la carrera 70C y la carrera 51. 
+      Esta limitada conectividad genera un alto grado de aislamiento vial, lo que se traduce en una grave congestión durante las horas pico, especialmente cuando las personas intentan ingresar al sector. 
+      Esta situación se agrava debido a que Madelena es uno de los barrios con mayor valorización en el sur de la ciudad, lo cual atrae una significativa afluencia de personas y vehículos.
+    </p>
+
+    <div id="map"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([4.592679885701876, -74.15734973139097], 13); 
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    var polygon = L.polygon([
+      [4.595858747854461, -74.16196529089508],
+      [4.5804781400743915, -74.15728005177534],
+      [4.581287654003434, -74.15306333656757],
+      [4.5963257651716924, -74.15499990207041]
+    ], {
+      color: 'blue',
+      fillColor: '#3388ff',
+      fillOpacity: 0.5
+    }).addTo(map).bindPopup("Zona de interés");
+  </script>
+</body>
+</html>
+
